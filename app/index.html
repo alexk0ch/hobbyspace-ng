@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="HS">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>HobbySpace Portal</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="css/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="css/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!--Navigation Bar -->
+<div class="navbar navbar-inverse navbar-fixed-top headroom" ng-controller="Navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- Button for smallest screens -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo-small-head.png" class="pull-left" alt="GL HobbySpace">
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li ng-class="{ active: isActive('/home') }"><a href="#home">Home</a></li>
+                <li ng-class="{ active: isActive('/events') }"><a href="#events">Events</a></li>
+                <li ng-class="{ active: isActive('/profile') }"><a href="#profile">Profile</a></li>
+                <li ng-class="{ active: isActive('/login') }"><a class="btn" href="#login">SIGN IN</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+
+</div>
+
+<header id="head" class="secondary"></header>
+
+<div class="container">
+    <div class="row">
+    <!--/Navigation Bar -->
+        <br/>
+        <div ng-view></div>
+    </div>
+</div>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="top-space">
+
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 widget">
+                        <div class="widget-body">
+                            <p class="text-center">
+                                Copyright &copy; 2014 | <b>GlobalLogic HobbySpace</b>
+                            </p>
+                        </div>
+                    </div>
+                </div> <!-- /row of widgets -->
+            </div>
+        </div>
+    </footer>
+    <!-- /FOOTER -->
+
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="vendor/bootstrap/js/headroom.min.js"></script>
+  <script src="js/build.js"></script>
+</body>
+</html>
+
+
