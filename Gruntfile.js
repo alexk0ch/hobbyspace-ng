@@ -1,35 +1,70 @@
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
-    grunt.loadNpmTasks("grunt-contrib-watch");
-    grunt.loadNpmTasks("grunt-contrib-concat");
+  var vendors = {
+    list: [
+      'angular-route',
+      'requirejs',
+      'requirejs-text'
+    ],
+    paths: {
+      'requirejs': '../bower_components/requirejs/require',
+      'requirejs-text': '../bower_components/requirejs-text/text'
+    }
+  };
 
-    grunt.initConfig({
-        pkg: grunt.file.readJSON("package.json"),
+  var applicationBootScript = './app/boot.js';
+  var baseUrl = './app';
+  var built = {
+    vendors: 'build/vendors.js',
+    app: 'build/app.js'
+  };
 
-        watch: {
-            files: [
-                "app/js/**/*.*"
-            ],
-            tasks: [
-                "default"
-            ]
-        },
+  var uglify2Options = {
+    compress: {
+      evaluate: true,
+      drop_debugger: true,
+      dead_code: true
+    }
+  };
 
-		concat: {
-			dist: {
-				src: [
-					'app/js/init.js',
-					'app/js/directives/*.js',
-					'app/js/services/*.js',
-					'app/js/filters/*.js',
-					'app/js/controllers/*.js',
-					'app/js/app.js'
-				],
-				dest: 'app/js/build.js'
-			}
-		}
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    requirejs: {
+      vendors: {
+        options: {
+          baseUrl: baseUrl,
+          logLevel: 2, //WARNING
+          out: built.vendors,
+          // optimize: 'none',
+          optimize: 'uglify2',
+          uglify2: uglify2Options,
+          // generateSourceMaps: true, //<-uncomment this line to enable source mapping
+          preserveLicenseComments: false,
+          mainConfigFile: applicationBootScript,
+          include: vendors.list,
+          paths: vendors.paths
+        }
+      },
+      app: {
+        options: {
+          baseUrl: baseUrl,
+          logLevel: 2, //WARNING
+          out: built.app,
+          // optimize: 'none',
+          optimize: 'uglify2',
+          uglify2: uglify2Options,
+          // generateSourceMaps: true, //<-uncomment this line to enable source mapping
+          preserveLicenseComments: false,
+          mainConfigFile: applicationBootScript,
+          name: 'boot',
+          exclude: vendors.list,
+          paths: vendors.paths
+        }
+      }
+    }
+  });
 
-    });
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.registerTask('default', ['requirejs:app', 'requirejs:vendors']);
 
-    grunt.registerTask("default", ["concat", "watch"]);
 };

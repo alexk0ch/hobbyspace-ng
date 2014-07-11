@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HobbySpace Portal</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/css/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/css/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body id="HS">
+<!--Navigation Bar -->
+<div class="navbar navbar-inverse navbar-fixed-top headroom">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- Button for smallest screens -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a class="navbar-brand" href="#home">
+                <img src="assets/img/logo-small-head.png" class="pull-left" alt="GL HobbySpace">
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav pull-right" ng-controller="application.controllers.navigation">
+                <li ng-class="{ active: isActive('/')}"><a href="/">Home</a></li>
+                <li ng-class="{ active: isActive('/events')}"><a href="/events">Events</a></li>
+                <li ng-class="{ active: isActive('/profile')}"><a href="/profile">Profile</a></li>
+                <li ng-class="{ active: isActive('/login')}"><a class="btn" href="/login">SIGN IN</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+
+</div>
+
+<header id="head" class="secondary"></header>
+
+<div class="container">
+    <div class="row">
+        <!--/Navigation Bar -->
+        <br/>
+        <div ng-view></div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer" class="top-space">
+    <div class="footer2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 widget">
+                    <div class="widget-body">
+                        <p class="text-center">
+                            Copyright &copy; 2014 | <b>GlobalLogic HobbySpace</b>
+                        </p>
+                    </div>
+                </div>
+            </div> <!-- /row of widgets -->
+        </div>
+    </div>
+</footer>
+<!-- /FOOTER -->
+
+<script src="bower_components/requirejs/require.js" data-main="app/boot"></script>
+</body>
+</html>
