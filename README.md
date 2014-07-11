@@ -1,1 +1,1 @@
-﻿#HobbySpace - Global Logic Internal Hobby-Network
+HS Front-end engine initial source version 0.0.1

@@ -1,18 +1,17 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "requirejs-angular-loader-seed",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
-  "license": "MIT",
   "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
   "dependencies": {
-    "angular": "1.2.x",
-    "angular-route": "1.2.x",
-    "angular-loader": "1.2.x",
-    "angular-mocks": "~1.2.x",
-	"bootstrap": "3.1.0",
-	"jquery": "~2.1.0"
+    "requirejs": "~2.1.9",
+    "requirejs-text": "~2.0.10",
+    "angular-route": "~1.2.10",
+	"jquery" : "~2.1.0",
+    "requirejs-angualr-loader": "tuchk4/requirejs-angular-loader"
   }
 }
-
-
